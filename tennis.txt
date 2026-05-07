@@ -1,0 +1,330 @@
+// index.html 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Tennis</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand fw-bold" href="#">
+                Tennis World
+            </a>
+
+            <!-- Mobile Button -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu"
+                    title="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#players">
+                            Players
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rules">
+                            Rules
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schedule">
+                            Grand Slams
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Header -->
+    <header class="header-section">
+
+        <h1>All About Tennis</h1>
+
+        <p>Explore Famous Players, Rules and Grand Slam Tournaments</p>
+
+    </header>
+
+    <!-- Players Section -->
+    <div class="container my-5" id="players">
+
+        <h2 class="text-center mb-4">Famous Tennis Players</h2>
+
+        <div class="row">
+
+            <!-- Federer -->
+            <div class="col-md-4 mb-4">
+
+                <div class="card tennis-card shadow">
+
+                    <img src="https://images.unsplash.com/photo-1542144582-1ba00456b5e3?q=80&w=1000"
+                         class="card-img-top"
+                         alt="Roger Federer">
+
+                    <div class="card-body text-center">
+
+                        <h3>Roger Federer</h3>
+
+                        <button class="btn btn-success"
+                                onclick="showAchievement('Roger Federer won 20 Grand Slam titles.')">
+
+                            Achievements
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Nadal -->
+            <div class="col-md-4 mb-4">
+
+                <div class="card tennis-card shadow">
+
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1000"
+                         class="card-img-top"
+                         alt="Rafael Nadal">
+
+                    <div class="card-body text-center">
+
+                        <h3>Rafael Nadal</h3>
+
+                        <button class="btn btn-danger"
+                                onclick="showAchievement('Rafael Nadal won 22 Grand Slam titles.')">
+
+                            Achievements
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Djokovic -->
+            <div class="col-md-4 mb-4">
+
+                <div class="card tennis-card shadow">
+
+                    <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1000"
+                         class="card-img-top"
+                         alt="Novak Djokovic">
+
+                    <div class="card-body text-center">
+
+                        <h3>Novak Djokovic</h3>
+
+                        <button class="btn btn-primary"
+                                onclick="showAchievement('Novak Djokovic is one of the greatest tennis players.')">
+
+                            Achievements
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Rules Section -->
+    <div class="container my-5" id="rules">
+
+        <div class="info-box shadow">
+
+            <h2>Tennis Rules</h2>
+
+            <ul>
+                <li>A tennis match is played between two or four players.</li>
+                <li>A player must win at least 6 games to win a set.</li>
+                <li>The ball must stay inside the court boundaries.</li>
+                <li>Players score points as 15, 30, 40 and Game.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Grand Slam Schedule -->
+    <div class="container my-5" id="schedule">
+
+        <div class="info-box shadow">
+
+            <h2>Grand Slam Schedule</h2>
+
+            <table class="table table-bordered text-center">
+
+                <thead class="table-success">
+
+                    <tr>
+                        <th>Tournament</th>
+                        <th>Country</th>
+                        <th>Month</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Australian Open</td>
+                        <td>Australia</td>
+                        <td>January</td>
+                    </tr>
+
+                    <tr>
+                        <td>French Open</td>
+                        <td>France</td>
+                        <td>May</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wimbledon</td>
+                        <td>England</td>
+                        <td>July</td>
+                    </tr>
+
+                    <tr>
+                        <td>US Open</td>
+                        <td>USA</td>
+                        <td>August</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 Tennis World Website</p>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+// style.css ----------------------------------------------------------------------------------------------------------------------
+
+body {
+    background-color: #f4fff4;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+
+.header-section {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.header-section h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* Player Cards */
+
+.tennis-card {
+    border-radius: 15px;
+    transition: transform 0.4s;
+}
+
+.tennis-card:hover {
+    transform: scale(1.05);
+}
+
+.tennis-card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Info Boxes */
+
+.info-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+
+// script.js ----------------------------------------------------------------------------------------------------------------------
+
+
+// Welcome Popup
+
+alert("Welcome to Tennis World!");
+
+
+// Achievement Function
+
+function showAchievement(message)
+{
+    alert(message);
+}

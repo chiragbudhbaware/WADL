@@ -1,0 +1,346 @@
+// index.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Restaurant Menu App</title>
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet"
+          href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- jQuery Mobile JS -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Page -->
+    <div data-role="page" id="home">
+
+        <!-- Header -->
+        <div data-role="header" class="header-section">
+
+            <h1>Food Junction</h1>
+
+        </div>
+
+        <!-- Main Content -->
+        <div role="main" class="ui-content">
+
+            <h2 class="text-center">
+                Restaurant Menu
+            </h2>
+
+            <div class="menu-grid">
+
+                <!-- Pizza -->
+                <div class="menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000"
+                         alt="Pizza">
+
+                    <h3>Pizza</h3>
+
+                    <a href="details.html?item=Pizza"
+                       class="ui-btn ui-btn-b">
+
+                        View Details
+
+                    </a>
+
+                </div>
+
+                <!-- Burger -->
+                <div class="menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000"
+                         alt="Burger">
+
+                    <h3>Burger</h3>
+
+                    <a href="details.html?item=Burger"
+                       class="ui-btn ui-btn-b">
+
+                        View Details
+
+                    </a>
+
+                </div>
+
+                <!-- Pasta -->
+                <div class="menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1000"
+                         alt="Pasta">
+
+                    <h3>Pasta</h3>
+
+                    <a href="details.html?item=Pasta"
+                       class="ui-btn ui-btn-b">
+
+                        View Details
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer">
+
+            <h4>Restaurant Mobile App</h4>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+// details.html ----------------------------------------------------------------------------------------------------------------------
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Menu Details</title>
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet"
+          href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- jQuery Mobile JS -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Header -->
+        <div data-role="header" class="header-section">
+
+            <h1>Food Details</h1>
+
+        </div>
+
+        <!-- Content -->
+        <div role="main" class="ui-content">
+
+            <div class="details-box">
+
+                <h2 id="foodName"></h2>
+
+                <img id="foodImage"
+                     src=""
+                     alt="Food Image">
+
+                <p id="foodInfo"></p>
+
+                <p id="foodPrice"></p>
+
+                <a href="index.html"
+                   class="ui-btn ui-btn-b">
+
+                    Back
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer">
+
+            <h4>Restaurant Mobile App</h4>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+// style.css ----------------------------------------------------------------------------------------------------------------------
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+
+.header-section {
+    background-color: #d84315 !important;
+
+    color: white !important;
+}
+
+/* Menu Grid */
+
+.menu-grid {
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+/* Menu Card */
+
+.menu-card {
+    background-color: #fff3e0;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.menu-card img {
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+/* Details Box */
+
+.details-box {
+    background-color: #f4f4f4;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.details-box img {
+    width: 100%;
+
+    max-width: 350px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+// script.js ----------------------------------------------------------------------------------------------------------------------
+
+
+// Get URL Parameter
+
+const params =
+new URLSearchParams(window.location.search);
+
+const item = params.get("item");
+
+
+// Food Data
+
+const menuData = {
+
+    Pizza: {
+
+        info:
+        "Cheesy pizza loaded with toppings.",
+
+        price:
+        "Price: ₹299",
+
+        image:
+        "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000"
+    },
+
+    Burger: {
+
+        info:
+        "Crispy burger with fresh vegetables.",
+
+        price:
+        "Price: ₹199",
+
+        image:
+        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000"
+    },
+
+    Pasta: {
+
+        info:
+        "Italian creamy white sauce pasta.",
+
+        price:
+        "Price: ₹249",
+
+        image:
+        "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1000"
+    }
+
+};
+
+
+// Display Data
+
+if(document.getElementById("foodName"))
+{
+    document.getElementById("foodName")
+    .innerText = item;
+
+    document.getElementById("foodInfo")
+    .innerText = menuData[item].info;
+
+    document.getElementById("foodPrice")
+    .innerText = menuData[item].price;
+
+    document.getElementById("foodImage")
+    .src = menuData[item].image;
+}

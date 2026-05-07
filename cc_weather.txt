@@ -1,0 +1,117 @@
+//  index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Weather Forecast App</h1>
+
+    <input type="text" id="city" placeholder="Enter city name">
+
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="weatherResult"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+// style.css ----------------------------------------------------------------------------------------------------------------------
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    background: rgba(255,255,255,0.2);
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 6px;
+}
+
+button {
+    width: 95%;
+    padding: 10px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #16325c;
+}
+
+#weatherResult {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
+// script.js ----------------------------------------------------------------------------------------------------------------------
+
+async function getWeather() {
+
+    const city = document.getElementById("city").value;
+
+    const apiKey = "YOUR_API_KEY";
+
+    const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    try {
+
+        const response = await fetch(url);
+
+        const data = await response.json();
+
+        if (data.cod === "404") {
+            document.getElementById("weatherResult").innerHTML =
+            "City not found!";
+            return;
+        }
+
+        document.getElementById("weatherResult").innerHTML =
+        `
+        <h3>${data.name}</h3>
+        <p>Temperature: ${data.main.temp} °C</p>
+        <p>Weather: ${data.weather[0].description}</p>
+        <p>Humidity: ${data.main.humidity}%</p>
+        <p>Wind Speed: ${data.wind.speed} m/s</p>
+        `;
+
+    } catch (error) {
+
+        document.getElementById("weatherResult").innerHTML =
+        "Error fetching weather data!";
+    }
+}

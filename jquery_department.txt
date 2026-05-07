@@ -1,0 +1,312 @@
+// index.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Department Grid View</title>
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet"
+          href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- jQuery Mobile JS -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Page -->
+    <div data-role="page" id="home">
+
+        <!-- Header -->
+        <div data-role="header" class="header-section">
+
+            <h1>Engineering Departments</h1>
+
+        </div>
+
+        <!-- Content -->
+        <div role="main" class="ui-content">
+
+            <div class="grid-container">
+
+                <!-- IT -->
+                <div class="dept-box">
+
+                    <h3>IT</h3>
+
+                    <a href="info.html?dept=IT"
+                       class="ui-btn ui-btn-b">
+
+                        View
+
+                    </a>
+
+                </div>
+
+                <!-- COMP -->
+                <div class="dept-box">
+
+                    <h3>COMP</h3>
+
+                    <a href="info.html?dept=COMP"
+                       class="ui-btn ui-btn-b">
+
+                        View
+
+                    </a>
+
+                </div>
+
+                <!-- ETC -->
+                <div class="dept-box">
+
+                    <h3>ETC</h3>
+
+                    <a href="info.html?dept=ETC"
+                       class="ui-btn ui-btn-b">
+
+                        View
+
+                    </a>
+
+                </div>
+
+                <!-- MECH -->
+                <div class="dept-box">
+
+                    <h3>MECH</h3>
+
+                    <a href="info.html?dept=MECH"
+                       class="ui-btn ui-btn-b">
+
+                        View
+
+                    </a>
+
+                </div>
+
+                <!-- ELECT -->
+                <div class="dept-box">
+
+                    <h3>ELECT</h3>
+
+                    <a href="info.html?dept=ELECT"
+                       class="ui-btn ui-btn-b">
+
+                        View
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer">
+
+            <h4>Department Information App</h4>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+// info.html ----------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Department Info</title>
+
+    <!-- jQuery Mobile CSS -->
+    <link rel="stylesheet"
+          href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- jQuery Mobile JS -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Page -->
+    <div data-role="page">
+
+        <!-- Header -->
+        <div data-role="header" class="header-section">
+
+            <h1>Department Information</h1>
+
+        </div>
+
+        <!-- Content -->
+        <div role="main" class="ui-content">
+
+            <div class="info-box">
+
+                <h2 id="deptName"></h2>
+
+                <p id="deptInfo"></p>
+
+                <a href="index.html"
+                   class="ui-btn ui-btn-b">
+
+                    Back
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer">
+
+            <h4>Department Information App</h4>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+// script.js ----------------------------------------------------------------------------------------------------------------------
+
+
+// Get URL Parameter
+
+const params =
+new URLSearchParams(window.location.search);
+
+const dept = params.get("dept");
+
+
+// Department Data
+
+const data = {
+
+    IT:
+    "Information Technology department focuses on software development, networking and databases.",
+
+    COMP:
+    "Computer Engineering department focuses on programming, AI and data structures.",
+
+    ETC:
+    "Electronics and Telecommunication department focuses on communication systems and electronics.",
+
+    MECH:
+    "Mechanical Engineering department focuses on machines, manufacturing and thermodynamics.",
+
+    ELECT:
+    "Electrical Engineering department focuses on power systems and electrical circuits."
+
+};
+
+
+// Display Data
+
+if(document.getElementById("deptName"))
+{
+    document.getElementById("deptName")
+    .innerText = dept;
+
+    document.getElementById("deptInfo")
+    .innerText = data[dept];
+}
+
+
+
+
+///  style.css ----------------------------------------------------------------------------------------------------------------------
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+
+.header-section {
+    background-color: #1565c0 !important;
+    color: white !important;
+}
+
+/* Grid Layout */
+
+.grid-container {
+    display: grid;
+
+    grid-template-columns:
+    repeat(5, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+/* Department Box */
+
+.dept-box {
+    background-color: #4a76c9;
+
+    color: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+/* Info Box */
+
+.info-box {
+    background-color: #f4f4f4;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    margin-top: 30px;
+}
